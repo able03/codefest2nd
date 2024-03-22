@@ -1,0 +1,35 @@
+<resources>
+    <string name="app_name">codefest2nd</string>
+
+    <string-array name="position_array">
+        <item>Staff</item>
+        <item>Supervisor</item>
+        <item>Manager</item>
+    </string-array>
+    
+    <string-array name="department_array">
+        <item>Information Technology</item>
+        <item>Accounting</item>
+        <item>Production</item>
+    </string-array>
+
+    <string-array name="marital_status_array">
+        <item>Single</item>
+        <item>Married</item>
+        <item>Divorced</item>
+    </string-array>
+
+    <string-array name="pay_period_array">
+        <item>Monthly</item>
+        <item>Semi Monthly</item>
+        <item>Daily</item>
+    </string-array>
+
+    <string-array name="day_adapter">
+        <item>Monday</item>
+        <item>Tuesday</item>
+        <item>Wednesday</item>
+        <item>Thursday</item>
+        <item>Friday</item>
+    </string-array>
+</resources>

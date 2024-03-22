@@ -1,0 +1,352 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".AdminActivity">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerHorizontal="true"
+            android:scrollbars="none">
+
+            <!-- Labels -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingHorizontal="10dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="20dp"
+                    android:text="Register Employee"
+                    android:textColor="@color/black"
+                    android:textSize="30sp"
+                    android:textStyle="bold" />
+
+                <!-- First name -->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/register_first_name_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:counterEnabled="true"
+                    app:counterMaxLength="20">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/register_first_name_edtx"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="First name"
+                        android:inputType="text"
+                        android:maxLength="20" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+                <!-- First name end -->
+
+                <!-- Middle name -->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/register_middle_name_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:counterEnabled="true"
+                    app:counterMaxLength="20">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/register_middle_name_edtx"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Middle name"
+                        android:inputType="text"
+                        android:maxLength="20" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+                <!-- Middle name end -->
+
+                <!-- last name -->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/register_last_name_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:counterEnabled="true"
+                    app:counterMaxLength="20">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/register_last_name_edtx"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Last name"
+                        android:inputType="text"
+                        android:maxLength="20" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+                <!-- last name end -->
+
+                <!-- Username -->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/register_username_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/register_username_edtx"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:enabled="false"
+                        android:hint="Username"
+                        android:inputType="text" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+                <!-- Username end -->
+
+                <!-- Password -->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/register_password_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/register_password_edtx"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:enabled="false"
+                        android:hint="Password"
+                        android:inputType="text" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+                <!-- Password end -->
+
+                <!-- Birthday -->
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Birthday:"
+                        android:textStyle="bold"
+                        android:textColor="@color/black"
+                        android:textSize="20sp" />
+
+                    <TextView
+                        android:id="@+id/birthday"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:text="00/00/00"
+                        android:textColor="@color/black"
+                        android:textSize="20sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="20dp"
+                        android:text="Age:"
+                        android:textStyle="bold"
+                        android:textSize="20sp" />
+
+                    <TextView
+                        android:id="@+id/age_txt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:text="00"
+                        android:textSize="20sp"/>
+                </LinearLayout>
+                <!-- Birthday end -->
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:orientation="horizontal">
+
+                    <!-- Position -->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Position:"
+                        android:textColor="@color/black"
+                        android:textStyle="bold" />
+
+                    <Spinner
+                        android:id="@+id/position_spinner"
+                        android:layout_width="wrap_content"
+                        android:layout_height="48dp"></Spinner>
+                    <!-- Position end -->
+
+                    <!-- Department -->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Department:"
+                        android:textColor="@color/black"
+                        android:textStyle="bold" />
+
+                    <Spinner
+                        android:id="@+id/department_spinner"
+                        android:layout_width="wrap_content"
+                        android:layout_height="48dp" />
+                    <!-- Department end -->
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <!-- Marital status -->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Marital Status:"
+                        android:textColor="@color/black"
+                        android:textStyle="bold" />
+
+                    <Spinner
+                        android:id="@+id/marital_status_spinner"
+                        android:layout_width="wrap_content"
+                        android:layout_height="48dp" />
+                    <!-- Marital status end -->
+
+                    <!-- Pay period -->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Pay period:"
+                        android:textColor="@color/black"
+                        android:textStyle="bold" />
+
+                    <Spinner
+                        android:id="@+id/pay_period_spinner"
+                        android:layout_width="wrap_content"
+                        android:layout_height="48dp" />
+                    <!--  Pay period end -->
+
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="Schedule"
+                    android:textColor="@color/black"
+                    android:textSize="20sp" />
+
+                <!-- Schedule -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <!-- Day -->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Day:"
+                        android:textColor="@color/black"
+                        android:textStyle="bold" />
+
+                    <Spinner
+                        android:id="@+id/day_spinner"
+                        android:layout_width="wrap_content"
+                        android:layout_height="48dp" />
+                    <!-- Day end -->
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:orientation="horizontal">
+
+                    <!-- TIme in -->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Time in:"
+                        android:textColor="@color/black"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/register_time_in"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:text="00:00"
+                        android:textColor="@color/black" />
+                    <!-- Time in end-->
+
+                    <!-- Time out -->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:text="Time out:"
+                        android:textColor="@color/black"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/register_time_out"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:text="00:00"
+                        android:textColor="@color/black" />
+                    <!-- Time out end-->
+
+                    <!-- Hours -->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:text="Hours:"
+                        android:textColor="@color/black"
+                        android:textStyle="bold" />
+
+                   <!-- <EditText
+                        android:id="@+id/register_hours"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="0"
+                        android:inputType="number" />-->
+
+                    <TextView
+                        android:id="@+id/register_hours"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:text="0" />
+                    <!-- Hours end-->
+                </LinearLayout>
+                <!-- Schedule end -->
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/generate_btn"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@android:color/holo_blue_dark"
+                    android:text="Generate"
+                    app:cornerRadius="5dp" />
+
+            </LinearLayout>
+
+        </ScrollView>
+
+    </RelativeLayout>
+</layout>
