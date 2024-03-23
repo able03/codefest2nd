@@ -33,6 +33,7 @@ public class DBHelper extends SQLiteOpenHelper
                 "maritalStatus VARCHAR(50), " +
                 "payPeriod VARCHAR(50), " +
                 "schedule VARCHAR(50))");
+
     }
 
     @Override
@@ -86,5 +87,28 @@ public class DBHelper extends SQLiteOpenHelper
             return true;
         }
     }
+
+    public boolean updateData(String fname, String mname, String lname, String username, String password)
+    {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put("username", username);
+        values.put("password", password);
+
+        String selection = "firstName = ? and middleName = ? and lastName = ?";
+        String[] selectionArgs = {fname, mname, lname};
+
+        long i = db.update("customerTbl", values, selection, selectionArgs);
+        if(i > 0)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+
+    }
+
 
 }

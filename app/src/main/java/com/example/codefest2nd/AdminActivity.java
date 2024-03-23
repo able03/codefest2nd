@@ -5,6 +5,8 @@ import androidx.databinding.DataBindingUtil;
 
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -28,6 +30,7 @@ public class AdminActivity extends AppCompatActivity
     private String fname1, mname1, lname1, uname1, pass1, bday1, position1,
             department1, mstatus1, pperiod1, day1, timein1, timeout1;
     private DBHelper dbHelper;
+    private final static String format = "STI-";
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -64,6 +67,15 @@ public class AdminActivity extends AppCompatActivity
                if(dbHelper.addData(fname1,mname1,lname1,null, null,bday1,position1,department1,mstatus1,pperiod1, result))
                {
                    Toast.makeText(this, "Add success", Toast.LENGTH_SHORT).show();
+
+                   //generate username and pass in this line
+                   generateUsername();
+                   generatePassword();
+
+                   uname1 = binding.registerUsernameEdtx.getText().toString().trim();
+                   pass1 = binding.registerPasswordEdtx.getText().toString().trim();
+
+                   dbHelper.updateData(fname1,mname1,lname1,uname1,pass1);
 
                }
                else
@@ -175,7 +187,7 @@ public class AdminActivity extends AppCompatActivity
         });
     }
 
-    private String generateUsername()
+    private void generateUsername()
     {
         String fName = binding.registerFirstNameEdtx.getText().toString().trim();
         String lName = binding.registerLastNameEdtx.getText().toString().trim();
@@ -197,15 +209,40 @@ public class AdminActivity extends AppCompatActivity
             }
         }
 
-        return sb.toString();
+        binding.registerUsernameEdtx.setText(sb.toString());
     }
 
-    private String generatePassword(int month, int year)
+    private void generatePassword()
     {
+        String fname = binding.registerFirstNameEdtx.getText().toString().trim();
+        String mname = binding.registerMiddleNameEdtx.getText().toString().trim();
+        String lname = binding.registerLastNameEdtx.getText().toString().trim();
+
         StringBuilder sb = new StringBuilder();
-        int age = Integer.parseInt(binding.ageTxt.getText().toString().trim());
-        sb.append("STI-1" + age + month + year);
-        return sb.toString();
+        dbHelper = new DBHelper(this);
+        SQLiteDatabase db = dbHelper.getReadableDatabase();
+        Cursor cursor = db.rawQuery("SELECT * FROM customerTbl WHERE firstName = ? and middleName = ? and lastName = ?", new String[]{fname, mname, lname});
+        try
+        {
+            if(cursor.moveToFirst())
+            {
+                int id = cursor.getInt(0);
+                int age = Integer.parseInt(binding.ageTxt.getText().toString().trim());
+
+                sb.append(format+id+age+month1+year1);
+                binding.registerPasswordEdtx.setText(sb.toString());
+            }
+            else {
+                Toast.makeText(this, "No data found", Toast.LENGTH_SHORT).show();
+            }
+        }
+        finally
+        {
+            dbHelper.close();
+            cursor.close();
+            db.close();
+        }
+
     }
 
 
