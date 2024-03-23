@@ -44,6 +44,7 @@ public class MainActivity extends AppCompatActivity
             binding.passwordTxt.setText(pass);
             binding.birthdayTxt.setText(bday);
             binding.positionTxt.setText(position);
+            binding.departmentTxt.setText(dep);
             binding.maritalStatusTxt.setText(mstatus);
             binding.payPeriodTxt.setText(pperiod);
             binding.scheduleTxt.setText(schedule);
