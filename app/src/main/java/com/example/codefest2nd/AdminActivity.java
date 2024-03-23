@@ -60,6 +60,8 @@ public class AdminActivity extends AppCompatActivity
                day1 = day.getSelectedItem().toString();
                timein1 = binding.registerTimeIn.getText().toString().trim();
                timeout1 = binding.registerTimeOut.getText().toString().trim();
+
+               binding.registerHours.setText(String.valueOf(Math.abs(in-out)));
                hours1 = Integer.parseInt(binding.registerHours.getText().toString().trim());
 
                String result = String.format("%s, %s, %s, %s", day1,timein1,timeout1,hours1);
@@ -185,6 +187,7 @@ public class AdminActivity extends AppCompatActivity
             }, 12, 00, false);
             timePickerDialog.show();
         });
+
     }
 
     private void generateUsername()
